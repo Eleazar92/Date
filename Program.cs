@@ -34,7 +34,7 @@ namespace Date
         public Date() : this(DateTime.Today.Year, DateTime.Today.Month - 1, DateTime.Today.Day) { }
 
         public bool LeapYear() => LeapYear(this.Year);
-        public static bool LeapYear(int year) => (year >= -9999 && year <= 9999 && ((year / 4 == 0 && year / 100 != 0) || year / 400 == 0));
+        public static bool LeapYear(int year) => (year >= -9999 && year <= 9999 && ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0));
         public int CalcMonthDays() => CalcMonthDays(this.Year, this.Month);
         public static int CalcMonthDays(int year, int month) =>
             (LeapYear(year), month) switch
